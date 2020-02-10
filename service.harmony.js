@@ -3,7 +3,16 @@ const harmonyModel = require('./harmony.model');
 
 async function getAllTasks( request, response ) {
     const allTasks =await harmonyModel.find();
-    response.send(allTasks);
+    let allTasksWithOverdue = allTasks.map( (document) => {
+        const timeFlag = document.taskTime < new Date();
+        if ( timeFlag && document.taskCompleted == false) {
+            document.taskOverDue = true;
+            return document;
+        }
+        document.taskOverDue = false;
+        return document;
+    });
+    response.send(allTasksWithOverdue);
 }
 
 async function createTask( request, response ) {

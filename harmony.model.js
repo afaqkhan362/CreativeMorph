@@ -18,6 +18,10 @@ const harmony = new mongoose.Schema({
     taskCompleted: {
         type: Boolean,
     },
+    taskOverDue: {
+        type: Boolean,
+        default: "false",
+    },
     updatedAt: {
         type: Date,
         default: Date.now,
