@@ -22,7 +22,8 @@ async function updateTask(request, response ) {
     const updatedDocument =await harmonyModel.findByIdAndUpdate({ _id: request.body.id }, { 
         priority: request.body.priority,
         assignedProjectName: request.body.assignedProjectName,
-        taskCompleted: request.body.taskCompleted
+        taskCompleted: request.body.taskCompleted,
+        taskTime: request.body.taskTime,
     });
     response.send(updatedDocument);
 }
