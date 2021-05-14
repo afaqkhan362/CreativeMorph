@@ -1,4 +1,3 @@
-# CreativeMorph
 
 # Back end implementation of test
 
